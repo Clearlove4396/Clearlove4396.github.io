@@ -147,7 +147,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://clearlove4396.github.io/2020/10/23/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://clearlove4396.github.io/2020/10/23/hexo-github-creat-a-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/23/my-first-blog/" class="post-title-link" itemprop="url">my first blog</a>
+            <a href="/2020/10/23/hexo-github-creat-a-blog/" class="post-title-link" itemprop="url">hexo+github: creat a blog</a>
         </h2>
 
         <div class="post-meta">
@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-23 09:43:12 / Modified: 09:44:19" itemprop="dateCreated datePublished" datetime="2020-10-23T09:43:12+08:00">2020-10-23</time>
+              <time title="Created: 2020-10-23 14:22:28 / Modified: 14:45:43" itemprop="dateCreated datePublished" datetime="2020-10-23T14:22:28+08:00">2020-10-23</time>
             </span>
 
           
@@ -186,79 +186,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h4><ul>
-<li>this is first blog~</li>
+          <h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><ol>
+<li>创建一个仓库，仓库名：{your github name}.github.io</li>
+<li>勾选Initialize this repository with a README</li>
+</ol>
+<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p><code>hexo</code>是一个博客框架，可以把本地<code>.md</code>文件生成网页。<code>Github Pages</code>其实是一个挂载容器，<code>hexo</code>可以把生成的网页挂载到<code>github</code>上显示。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li><p>安装<code>node.js</code></p>
+</li>
+<li><p>安装<code>Git</code></p>
+</li>
+<li><p>安装<code>Hexo</code></p>
+<ul>
+<li><code>npm install -g hexo-cli</code></li>
 </ul>
+</li>
+<li><p>创建本地博客</p>
+<ul>
+<li>创建文件夹<code>blog</code>（需要是空文件夹）</li>
+<li>鼠标右键<code>blog</code>，选择<code>Git Bush Here</code></li>
+<li><code>hexo init</code>初始化</li>
+<li>输入<code>npm install</code>安装相关依赖包</li>
+<li><code>hexo g</code>（即generate）把<code>.md</code>文件转化为<code>.html</code>文件</li>
+<li><code>hexo s</code>创建服务，此时浏览器中输入<code>localhost:4000</code>可以看到网页</li>
+</ul>
+</li>
+<li><p>文件夹简单说明</p>
+<ul>
+<li><code>_config.yml</code>博客的配置信息</li>
+<li><code>source/_posts</code>存放博客的原文件，也就是<code>.md</code>文件及一些别的东西，比如图片资源</li>
+<li><code>themes</code>博客的界面主题</li>
+<li><code>public</code>生成的<code>.html</code>文件，将来也是把这个东西上传到<code>Github</code>上部署</li>
+</ul>
+</li>
+<li><p>把本地博客部署到<code>Github</code>上</p>
+<ul>
+<li>打开<code>_config.yml</code>，找到<code>deploy:  </code>并进行相关修改，注意这里的<code>branch</code>写成<code>main</code>，因为<code>github</code>上面的仓库的主分支叫做<code>main</code>，而不是原来的<code>master</code></li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line"><span class="attr">repository:</span> &#123;<span class="string">your</span> <span class="string">Repository&#x27;s</span> <span class="string">URL</span>&#125; </span><br><span class="line"><span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<ul>
+<li>需要执行一次（只需要一次）：<code>npm install hexo-deployer-git --save</code></li>
+<li>执行<code>hexo d</code>，得到<code>INFO Deploy deno: git</code>即为部署成功</li>
+</ul>
+</li>
+<li><p>更换博客主题</p>
+<ul>
+<li>去<code>https://hexo.io/themes/</code>上面找一个主题，然后<code>git clone</code>到<code>themes</code>问价夹下，假如文件夹的名字叫<code>jiangnansytle</code></li>
+<li>在<code>_config.yml</code>中把<code>theme</code>改成<code>jiangnansytle</code>即可</li>
+<li>如果更换主题后发现生成的<code>html</code>为空，则可能是主题有问题，换一个把。</li>
+</ul>
+</li>
+<li><p>在<code>.md</code>中添加图片</p>
+<ul>
+<li><p>参考下面两个链接就好了</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3db6a61d3782">https://www.jianshu.com/p/3db6a61d3782</a></p>
+</li>
+</ul>
+</li>
+<li><p>hexo指令总结</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init    初始化</span><br><span class="line">hexo g       生成.html</span><br><span class="line">hexo d       部署</span><br><span class="line">hexo s       运行server</span><br><span class="line">hexo clean   清除生成的.html</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://clearlove4396.github.io/2020/10/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ylem">
-      <meta itemprop="description" content="ylem blog~">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ylem">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/23/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-23 09:41:22" itemprop="dateCreated datePublished" datetime="2020-10-23T09:41:22+08:00">2020-10-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<ol start="10">
+<li><p>Just a test</p>
+<p><img src="/2020/10/23/hexo-github-creat-a-blog/guimiezhiren.jpg" alt="guimiezhiren"></p>
+</li>
+</ol>
 
       
     </div>
@@ -340,7 +337,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
